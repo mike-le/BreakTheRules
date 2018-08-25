@@ -1,6 +1,0 @@
-Error:
-  An assembly specified in the application dependencies manifest (BTR.deps.json) was not found:
-    package: 'Microsoft.AspNetCore.Antiforgery', version: '2.0.3'
-    path: 'lib/netstandard2.0/Microsoft.AspNetCore.Antiforgery.dll'
-  This assembly was expected to be in the local runtime store as the application was published using the following target manifest files:
-    aspnetcore-store-2.0.8.xml
