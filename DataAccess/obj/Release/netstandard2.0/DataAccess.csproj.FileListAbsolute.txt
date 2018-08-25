@@ -1,0 +1,9 @@
+C:\TFS\WebApps\BreakTheRules\DataAccess\bin\Release\netstandard2.0\DataAccess.deps.json
+C:\TFS\WebApps\BreakTheRules\DataAccess\bin\Release\netstandard2.0\DataAccess.dll
+C:\TFS\WebApps\BreakTheRules\DataAccess\bin\Release\netstandard2.0\DataAccess.pdb
+C:\TFS\WebApps\BreakTheRules\DataAccess\obj\Release\netstandard2.0\DataAccess.csprojResolveAssemblyReference.cache
+C:\TFS\WebApps\BreakTheRules\DataAccess\obj\Release\netstandard2.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\TFS\WebApps\BreakTheRules\DataAccess\obj\Release\netstandard2.0\DataAccess.AssemblyInfoInputs.cache
+C:\TFS\WebApps\BreakTheRules\DataAccess\obj\Release\netstandard2.0\DataAccess.AssemblyInfo.cs
+C:\TFS\WebApps\BreakTheRules\DataAccess\obj\Release\netstandard2.0\DataAccess.dll
+C:\TFS\WebApps\BreakTheRules\DataAccess\obj\Release\netstandard2.0\DataAccess.pdb

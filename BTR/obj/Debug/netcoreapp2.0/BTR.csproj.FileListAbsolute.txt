@@ -1,0 +1,14 @@
+C:\TFS\WebApps\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.csprojResolveAssemblyReference.cache
+C:\TFS\WebApps\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.csproj.CoreCompileInputs.cache
+C:\TFS\WebApps\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.AssemblyInfoInputs.cache
+C:\TFS\WebApps\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.AssemblyInfo.cs
+C:\TFS\WebApps\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\BTR.deps.json
+C:\TFS\WebApps\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\BTR.runtimeconfig.json
+C:\TFS\WebApps\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\BTR.runtimeconfig.dev.json
+C:\TFS\WebApps\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\BTR.dll
+C:\TFS\WebApps\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\BTR.pdb
+C:\TFS\WebApps\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\DataAccess.dll
+C:\TFS\WebApps\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\DataAccess.pdb
+C:\TFS\WebApps\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.csproj.CopyComplete
+C:\TFS\WebApps\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.dll
+C:\TFS\WebApps\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.pdb

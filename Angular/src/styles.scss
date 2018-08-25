@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.mat-badge-small .mat-badge-content {
+    font-size: 7px;
+}
+
+.success-snackbar {
+    background: rgb(24, 216, 72);
+    text-align: center;
+  }

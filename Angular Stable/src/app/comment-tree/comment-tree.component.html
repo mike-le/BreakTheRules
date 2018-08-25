@@ -1,0 +1,59 @@
+
+<div *ngIf="this.comment" class="meta" [class.meta-collapse]=collapse >
+    <b [hidden]="collapse">
+        <span [ngClass]="{'active': comment.userVoteDirection === 1}" class="upvote glyphicon glyphicon-chevron-up" (click)=upvote() > </span> 
+    </b>
+    <span  class="collapse-comment" (click)="collapse=!collapse; loadSubComments(comment);"> [{{collapse ? '+' : '-'}}] </span> 
+    <a> {{comment.owner}} </a> 
+    <span class="points">{{ comment.score }} points</span>
+    <span class="divider">·</span>
+    <span class="time">{{comment.submitDt | amTimeAgo}}</span>   
+    <span class="time" id="edited" *ngIf="comment.modifiedDt != comment.submitDt">
+        <span class="divider">·</span>
+        edited {{ comment.modifiedDt | amTimeAgo }}
+    </span>
+    <div [hidden]="collapse">
+        <span [ngClass]="{'active': comment.userVoteDirection === -1}" class="downvote glyphicon glyphicon-chevron-down" (click)=downvote()></span>
+        <span [hidden]="collapseEdit"> 
+                <span class="comment-text" [hidden]="collapse">{{comment.message}}</span> 
+        </span>
+        <span [hidden]="!collapseEdit">
+            <div class="input-group" id="edit">
+                <textarea rows="5" cols="50" [(ngModel)]="editComment" form="edit" id="edit">{{comment.message}}</textarea>
+                <div class="bottom-bar"> 
+                    <span (click)="collapseEdit=!collapseEdit" class="cancel"> cancel </span>
+                    <button type="submit" (click)=patchComment(editComment) form="edit" value="Submit">Submit</button> 
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <div class="comment-options" [hidden]="collapse">
+        <font (click)="collapseReply=!collapseReply"> Reply </font> 
+        <font *ngIf="canEdit()" (click)="collapseEdit=!collapseEdit"> Edit </font>
+        <font *ngIf="canDelete()" (click)="deleteComment()"> Delete </font> 
+        <span [hidden]="!collapseReply">
+            <div class="input-group" id="reply">
+                <textarea rows="5" cols="50" minlength="1" [(ngModel)]="input" form="comment" id="comment" placeholder="What are your thoughts?"></textarea>
+                <div class="bottom-bar"> 
+                    <!-- <span class="bold"> B </span>
+                    <i> i </i>
+                    <span class ="bold"> ... </span> -->
+                    <span (click)="collapseReply=!collapseReply" class="cancel"> cancel </span>
+                    <button type="submit" [disabled]="!input" form="comment" (click)=send(input) value="Submit">Reply</button> 
+                </div>
+            </div>
+        </span>
+    </div>
+    
+        
+    <div class="comment-tree" *ngIf="comment.comments" >
+        <div [hidden]="collapse">
+        <ul class="subtree">
+            <li *ngFor="let subComment of comment.comments">
+            <comment-tree collapse=true [comment]=subComment></comment-tree> 
+            </li>
+        </ul>
+        </div>
+    </div>
+</div>

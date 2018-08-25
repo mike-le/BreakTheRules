@@ -1,0 +1,51 @@
+<header id="header">
+  <a class="home-link" routerLink="/"></a>
+  <div class="header-text">
+    <div class="left">
+      <h1 class="name">
+      <a routerLink="/" class="app-title">
+      <img class="logo" src="/assets/images/UNOS_logo_ctr_mod.svg"/>
+        <span id="title"> Break the Rules</span>
+      
+      </a>
+      </h1>
+    </div>
+
+    <div class="right">
+      <span class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="glyphicon glyphicon-bell" matBadge={{notificationList?.length}} matBadgePosition="above after" matBadgeColor="warn" matBadgeSize="small"></span>&nbsp;
+        </button>
+        <div class="dropdown-menu" *ngIf="notificationList" aria-labelledby="dropdownMenuButton">
+            <li *ngFor="let notif of notificationList; let i = index">
+              <div [routerLink]="['/themes/' + notif.status.idea.themeId]">
+                {{i + 1}}. Reminder to respond to this idea within 2 weeks <span class="date">[{{notif.createDt | amTimeAgo}}]</span>
+                <div class="message"> "{{notif.status.idea.message}}" </div>
+              </div>  
+            </li>
+        </div>
+      </span>
+      <button *ngIf="User.isAppAdmin" data-toggle="modal" data-target="#myModal">
+        <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+      </button>
+      <div id="name"> 
+        <span class="divider" id="divider"> | </span>
+        <span>Welcome, {{User.displayName?.split(' ')[0]}}</span>
+      </div>
+    </div >
+  </div>
+</header>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Create Theme</h4>
+      </div>
+      <div class="modal-body">
+        <app-theme-form [isEdit]=false> </app-theme-form>
+      </div>
+    </div>
+  </div>
+</div>

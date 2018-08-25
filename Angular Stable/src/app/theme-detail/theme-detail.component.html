@@ -1,0 +1,103 @@
+<div class="main-content">
+	<div *ngIf="!theme" class="loader"> </div>
+	<div *ngIf="theme" class="item">
+		<div id="theme-{{theme.themeId}}" class="item-laptop laptop" [class.item-header]="true" [class.head-margin]="theme.description"> 
+			<div>
+				<a class="title">
+					{{ theme.title }}  
+				</a>
+				<span class="edit" *ngIf="User.isAppAdmin">
+						<b data-toggle="modal" data-target="#editModal" class="edit">
+								<span>edit</span>&nbsp;
+						</b>
+						<b class="glyphicon glyphicon-envelope" data-toggle="modal" data-target="#confirmationModal"></b>
+				</span>
+			</div>
+			
+			<span class="description">
+					{{ theme.description }}
+			</span>
+			<span id="closeTheme" *ngIf="User.isAppAdmin" data-toggle="modal" data-target="#closeThemeMessage">close theme</span>
+			
+			<br>
+			<div class="input-group" *ngIf="theme.status === 'open'">
+				<textarea rows="10" cols="100" [(ngModel)]="input" form="comment" id="comment" placeholder="What are your thoughts?"></textarea>
+					
+				<div class="bottom-bar"> 
+					<button type="submit" class="submit" form="comment" [disabled]="!input" (click)="send(input)" value="Submit">Comment</button> 
+				</div>
+				<span class="right" >					
+						<div [ngStyle]="{'color': theme.status === 'open' ? 'green' : 'red'}" style="float:right"><span style="font-weight:bold">Status:</span> {{theme.status}}</div>
+						<div class="subtext-laptop">
+								<span class="glyphicon glyphicon-time" id="time"></span> 
+								<span *ngIf="theme.status === 'open'"> {{theme.closeDt | amDifference : null : 'days' }} days left</span>
+								<span *ngIf="theme.status === 'closed'"> {{theme.closeDt | amTimeAgo }} </span>
+						</div>
+				</span>	
+			</div>  
+		</div>
+
+		<p class="subject" [innerHTML]=""></p>
+		
+		<ul *ngIf="theme.ideas" class="comment-list">
+			<li *ngFor="let idea of theme.ideas">
+				<idea [collapse]=false [idea]=idea [theme]="theme"></idea>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div id="confirmationModal" class="modal fade" role="dialog">
+		<div class="modal-dialog ">
+			<div class="modal-content">
+				<div class="modal-body">
+					<h4 class="model-title">Are you sure you would like to send an email reminder for this theme?</h4>
+					<br>
+					<br>
+					<div id="bottom-bar">
+						<button type="closebutton" data-dismiss="modal" class="closebutton">cancel</button>
+						<button type="submit" (click)="sendReminder()" data-dismiss="modal" class="submitbutton">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+<div id="closeThemeMessage" class="modal fade" role="dialog">
+		<div class="modal-dialog ">
+			<div class="modal-content">
+				<div class="modal-body">
+					<h4 class="model-title">Are you sure you would like to close this theme?</h4>
+					<br>
+					<br>
+					<div id="bottom-bar">
+						<button type="closebutton" data-dismiss="modal" class="closebutton">cancel</button>
+						<button type="submit" (click)="closeThemeNow()" data-dismiss="modal" class="submitbutton">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+<div *ngIf="theme">
+	<div id="editModal" class="modal fade" role="dialog">
+			<div class="modal-dialog ">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Edit Theme</h4>
+				</div>
+				<div class="modal-body">
+					<app-theme-form [isEdit]=true [theme]=theme></app-theme-form>
+				</div>
+				</div>
+			</div>
+	</div>
+</div>
+
+
+
+
+
+
+

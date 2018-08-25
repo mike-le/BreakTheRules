@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+
+.main-content {
+  position: relative;
+  width: 100%;
+  min-height: calc(93vh - 60px);
+  box-sizing: border-box;
+  z-index: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  box-sizing: border-box;
+  padding: 10px 25px 0 25px;
+  z-index: 0;
+}
+
+.head-margin {
+  margin-bottom: 15px;
+}
+
+p {
+  margin: 2px 0;
+}
+
+.subject {
+  word-wrap: break-word;
+  margin-top: 20px;
+}
+
+a {
+  color: #000;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.title {
+  font-size: 16px;
+  overflow:hidden;
+  box-sizing: border-box;
+  max-width: 1000px;
+}
+
+.description {
+  position: relative;
+  display: inline-block;
+  background-color: #f9f9fa;
+  border-radius: 3px;
+  width: 60%;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  margin-bottom: 5px;
+  margin-top: 5px;
+
+  overflow: hidden;
+  box-sizing: border-box;
+  max-width: 660px;
+}
+
+.title-block {
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0 75px;
+}
+
+.status{
+  position: relative;
+  bottom: 2.5px;
+  color: white;
+  border-radius: 5px;
+  font-size: 7px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: bold;
+  padding-left: px;
+  padding: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 3.5px;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+  
+}
+
+
+
+.domain, .subtext {
+  color: #696969;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  font-family: 'IBM Plex Serif', serif;
+  position: relative;
+  bottom: 1px;
+  left: 2px;
+}
+
+.domain a {
+  color: #b92b27;
+}
+
+.subtext a {
+  color: #1A5276;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.item-details {
+  padding: 10px;
+}
+
+.item-header {
+  border-bottom: 2px solid #1A5276;
+  padding-bottom: 10px;
+}
+
+::-webkit-input-placeholder {
+    color:grey;
+}
+
+::-moz-placeholder {
+    color:grey;
+}
+
+::-ms-placeholder {
+    color:grey;
+}
+
+::placeholder {
+    color:grey;
+}
+
+.buttonwrapper {
+  display: inline-block;
+}
+
+input{
+  background-color: transparent;
+  
+}
+
+button {
+  position: absolute;
+  bottom: 1.8px;
+  right: 3px;
+  width: 76.29px;
+  height: 22px;
+  border-radius: 5px;   
+  border: none;
+  background-color: #1A5276;
+  color: white;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 9px;
+  font-stretch: 100%;
+  &:hover {
+	cursor: pointer;
+  }
+  &:focus{
+	  outline:0;
+  }
+}
+
+.edit{
+  padding: 0px;
+  float: right;
+}
+
+.glyphicon.glyphicon-envelope
+{
+  padding: 0px;
+  margin-top: 3px;
+  margin-right: 5px;
+}
+
+
+b {
+	color: #848585;
+	margin-left: 5px;
+	top: 4px;
+	position: relative;
+	padding: 10px;
+	&:hover {
+		text-decoration: underline;
+		cursor: pointer;
+  }
+}
+
+i {
+	color: #848585;
+	margin-left: 5px;
+	top: 4px;
+	position: relative;
+	padding: 5px;
+	font-style: italic;
+	&:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+}
+
+textarea {
+  width: 60%;
+  resize: none;
+	z-index: -1;
+	border-radius: 5px;
+	border-color: #eeeeef;
+	border-width: 2px;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-size: 12px;
+	&:focus{
+	  outline:0;
+  }
+  max-width: 660px;
+}
+
+.input-group{
+  width: 100%;
+  position: relative;
+}
+
+
+.bottom-bar{
+ position: absolute;
+ width: 60%;
+ margin-left: .5px;
+ bottom: 7px;
+ height: 27px;
+ display: block;
+ color: #F6F7F8;
+ background-color: #eeeeef;
+ border-bottom-left-radius: 5px;
+ border-bottom-right-radius: 5px;
+ z-index: 0;
+ max-width: 660px;
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 10px 0;
+}
+
+li {
+  display: list-item;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #1A5276; 
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  margin: -75px 0 0 -75px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.right{
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
+  color: #1A5276;
+}
+
+#status{
+  font-weight: bold;
+  float:right;
+}
+
+.glyphicon.glyphicon-time{
+  padding-top: 1px;
+}
+
+.modal-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+@media screen  { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    height: 15%;
+  }
+}
+
+.submitbutton{
+  border-radius: 5px;
+  background-color: #1A5276;
+  color: white;
+  display: inline-block;
+  width: 80px;
+  position: relative;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-stretch: 100%;
+  &:hover {
+    cursor: pointer;
+    }
+}
+
+.closebutton{
+  border-radius: 5px;
+  color: #1A5276;
+  background-color: white;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  margin-right: 40px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-stretch: 100%;
+  &:hover {
+    color: #477491;
+    cursor: pointer;
+    }
+}
+
+#bottom-bar
+{
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+}
+
+#snackbar {
+  visibility: hidden; 
+  min-width: 250px; 
+  margin-left: -125px; 
+  color: #fff; 
+  text-align: center; 
+  border-radius: 2px; 
+  padding: 16px; 
+  position: fixed; 
+  z-index: -1; 
+  left: 50%; 
+  bottom: 123px; 
+}
+
+#snackbar.show {
+  visibility: visible; 
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 90px; opacity: 0;} 
+  to {bottom: 123px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 90px; opacity: 0;}
+  to {bottom: 123px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 123px; opacity: 1;} 
+  to {bottom: 90px; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 123px; opacity: 1;}
+  to {bottom: 90px; opacity: 0;}
+}
+
+#closeTheme{
+  position: absolute;
+  right: 29px;
+  color: #848585;
+  font-style: bold;
+  &:hover {
+		text-decoration: underline;
+		cursor: pointer;
+  }
+}

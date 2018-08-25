@@ -1,0 +1,5 @@
+C:\TFS\WebApps\BreakTheRules\BTR
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=BTR
+--content-root=C:\TFS\WebApps\BreakTheRules\BTR
+--file=

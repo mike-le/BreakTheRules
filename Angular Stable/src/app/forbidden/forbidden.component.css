@@ -1,0 +1,10 @@
+.error-body{
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-family: 'Ubuntu', sans-serif;
+    height: 40em;
+}
+.error-body h1 {
+    color: #80c342;
+}

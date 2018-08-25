@@ -1,0 +1,288 @@
+
+
+#header {
+  background-color: #1A5276;
+  color: #fff;
+  line-height: 18px;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 40px;
+
+  a {
+    display: inline;
+  }
+}
+
+.header-text {
+  position: relative;
+  width: inherit;
+  height: inherit;
+}
+
+.home-link {
+  width: 50px;
+  height: 66px;
+}
+
+.logo{
+    height: 100%;
+    margin: 0;
+    padding:0;
+  }
+
+h1 {
+  font-weight: bold;
+  display: inline-block;
+  vertical-align:middle;
+  margin: 0;
+  font-size: 16px;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+
+.name {
+  height: 100%;
+  margin-bottom: 8px;
+  font-size: 30px;
+  font-family: 'Ubuntu', sans-serif;
+  letter-spacing: 1px;
+
+  .app-title {
+    &:hover {
+      opacity: 0.75;
+      cursor: pointer;
+    }
+  }
+}
+
+.divider{
+  font-weight: 100;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+}
+
+#divider{
+  margin-right: 10px;
+}
+
+.left {
+  position: absolute;
+  bottom: 0px;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 23px;
+  height: 85%;
+}
+
+.right {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  position: relative;
+  font-size: 16px;
+  float: right;
+  margin-right: 23px; 
+  margin-top: 9px;
+}
+
+.header-nav {
+  display: inline-block;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      font-weight: bold;
+    };
+  }
+}
+
+.info {
+  position: absolute;
+  right: 20px;
+  font-size: 16px;
+
+  a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+.glyphicon {
+  position: relative;
+  bottom: 5px;
+  color: rgb(16, 51, 73);
+  margin-left: 2px;
+  &:hover{
+    opacity: 0.75;
+    cursor: pointer;
+  }
+}
+
+.glyphicon.glyphicon-bell, .glyphicon.glyphicon-pencil{
+  font-size: 20px;
+  margin-right: 10px;
+  color: white;
+}
+
+
+
+button {
+  background-color: #1A5276;
+  padding: 0px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  height: 20px;
+  &:focus{
+	  outline:0;
+  }
+}
+
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 70%;
+  }
+}
+
+.modal-title
+{
+  text-align: center;
+  font-weight: bold;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.closebutton{
+  border-radius: 5px;
+  color: #1A5276;
+  background-color: white;
+  display: inline-block;
+  width: 80px;
+  margin-right: 20px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-stretch: 100%;
+  &:hover {
+    color: #477491;
+    cursor: pointer;
+    }
+}
+
+.submitbutton{
+  border-radius: 5px;
+  display: inline-block;
+  width: 80px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-stretch: 100%;
+  &:hover {
+    background-color: #477491;
+    cursor: pointer;
+    }
+}
+
+.btn{
+  padding: 0px;
+  line-height: 0;
+  font-size: 16px;
+  vertical-align: 0;
+  box-shadow: none;
+  &:focus{
+	  outline:0;
+  }
+}
+
+li{
+  color: #1A5276;
+  &:hover{
+    opacity: 0.80;
+    cursor: pointer;
+  }
+}
+
+.dropdown-menu{
+  position: absolute;
+  top: 29px;
+  width: 445px;
+  left: -280px;
+  padding: 10px 10px;
+  margin-top: 0px;
+}
+
+.message
+{
+  padding-left: 12px;
+  max-width: 398px;
+  color: #848585;
+  font-weight: normal;
+  font-size: 10px;
+}
+
+.dropdown .dropdown-menu {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+
+  &:hover{
+    cursor: none;
+  }
+  pointer-events: none;
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.dropdown.open .dropdown-menu {
+  max-height: 300px;
+  opacity: 1;
+  pointer-events: auto;
+ }
+
+ .date{
+  color: #848585;
+  font-weight:normal;
+ }
+
+ #name{
+   display: inline;
+   vertical-align: 3px;
+ }
+
+ mat-divider {
+  border-width: 1px;
+  border-style: solid;
+}
+
+#title{
+  font-size: 29px;
+  vertical-align: 2px;
+}
+
+

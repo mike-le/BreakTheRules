@@ -1,0 +1,15 @@
+<font (click)="collapseForm=!collapseForm"> Update </font> 
+<form #statusForm="ngForm" [hidden]="collapseForm">
+    <div class="input-group">
+      <textarea rows="5" cols="50" minlength="5" id="comment" [(ngModel)]="model.response" name="response" placeholder="Please provide a message for your update."></textarea>
+      <div class="bottom-bar"> 
+          <span class="form-group">
+              <select class="form-control" id="updateStatus" required [(ngModel)]="model.statusCode" name="status" #statusCode="ngModel">	
+                  <option *ngFor="let currentStatus of statusOptions" [value]="ideaStatus[currentStatus]">{{currentStatus}}</option>
+              </select>
+          </span>
+        <span class="cancel" (click)="collapseForm=!collapseForm"> cancel </span>
+        <button type="submit" (click)="onSubmit(statusForm)" [disabled]="!model.response" value="Submit">Submit</button> 
+      </div>
+    </div>
+</form>
