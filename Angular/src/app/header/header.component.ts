@@ -20,8 +20,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit()
   {
-    this.User = this._userPrincipal;
-    this.getNotifications();
+    //this.User = this._userPrincipal;
+    //this.getNotifications();
   }
   
   getNotifications() {
