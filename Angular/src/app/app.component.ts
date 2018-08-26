@@ -16,18 +16,18 @@ export class AppComponent implements OnInit {
     private _commentService: CommentService,
     private snackBar: MatSnackBar
   ) { 
-    this._commentService.subj_notification.subscribe(message => {
-      snackBar.open(message, undefined, 
-        {
-          duration: 2500, 
-          panelClass: ['success-snackbar']
-        }
-      );
-  });
+    // this._commentService.subj_notification.subscribe(message => {
+    //   snackBar.open(message, undefined, 
+    //     {
+    //       duration: 2500, 
+    //       panelClass: ['success-snackbar']
+    //     }
+    //   );
+    // });
 } 
 
   ngOnInit(){
-    this.getUserPrincipal();
+    //this.getUserPrincipal();
   }
 
   getUserPrincipal() {
