@@ -29,11 +29,6 @@ namespace BTR
                 options => options.UseSqlServer(Configuration.GetConnectionString("BTRBranch"))
             );
 
-            // needed for UNOSUserPrincipalService
-            services.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
-
-            services.AddScoped<UNOSUserPrincipalService>();
-
             // config for user groups
             services.AddSingleton(cfg =>
             {
@@ -70,9 +65,7 @@ namespace BTR
                 options.AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod()
-            );
-
-            app.UseMiddleware<UserRightsMiddleware>();
+            );s
 
             app.UseMvc();
         }

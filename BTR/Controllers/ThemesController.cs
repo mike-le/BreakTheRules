@@ -19,13 +19,12 @@ namespace BTR.Controllers
     public class ThemesController : Controller
     {
         private BTRContext _context;
-        private UNOSUserPrincipalService _userPrincipal;
+        //private UserPrincipalService _userPrincipal;
         
 
-        public ThemesController(BTRContext context, UNOSUserPrincipalService principalService)
+        public ThemesController(BTRContext context)
         {
             _context = context;
-            _userPrincipal = principalService;
         }
 
         /// <summary>
@@ -36,8 +35,6 @@ namespace BTR.Controllers
         [HttpPost("send/{id}")]
         public ActionResult Send(int id)
         {
-            if (!_userPrincipal.IsAppAdmin)
-                return Forbid();
             ThemeEntity theme = (from t in _context.Themes
                                  where t.ThemeId == id
                                  select t).First();
@@ -47,13 +44,13 @@ namespace BTR.Controllers
             _context.SendEmail(theme, true);
             return Ok();
         }
+
         /// <summary>
         /// Retrieve all themes
         /// </summary>
         [HttpGet]
         public async Task<IEnumerable<ThemeEntity>> GetThemesAsync()
-        {
-            
+        { 
             return await _context.Themes
                     .ToListAsync();
         }
@@ -86,36 +83,36 @@ namespace BTR.Controllers
 
             loadedTheme.Ideas = loadedTheme.Ideas.OrderByDescending(o => o.Score).ToList<IdeaEntity>();
 
-            foreach (IdeaEntity idea in loadedTheme.Ideas)
-            {
-                idea.Comments = idea.Comments.OrderByDescending(c => c.Score).ToList();
+            //foreach (IdeaEntity idea in loadedTheme.Ideas)
+            //{
+            //    idea.Comments = idea.Comments.OrderByDescending(c => c.Score).ToList();
 
-                Vote tempVote = idea.Votes.Where(v => v.Owner == _userPrincipal.SAMName)
-                    .OrderByDescending(v => v.SubmitDt).FirstOrDefault();
+            //    Vote tempVote = idea.Votes.Where(v => v.Owner == _userPrincipal.SAMName)
+            //        .OrderByDescending(v => v.SubmitDt).FirstOrDefault();
 
-                if (tempVote != null)
-                    idea.UserVoteDirection = tempVote.Direction;
+            //    if (tempVote != null)
+            //        idea.UserVoteDirection = tempVote.Direction;
 
-                foreach (CommentEntity comment in idea.Comments)
-                {
-                    comment.Comments = comment.Comments.OrderByDescending(c => c.Score).ToList();
+            //    foreach (CommentEntity comment in idea.Comments)
+            //    {
+            //        comment.Comments = comment.Comments.OrderByDescending(c => c.Score).ToList();
 
-                    Vote subtempVote = comment.Votes.Where(v => v.Owner == _userPrincipal.SAMName)
-                        .OrderByDescending(v => v.SubmitDt).FirstOrDefault();
+            //        Vote subtempVote = comment.Votes.Where(v => v.Owner == _userPrincipal.SAMName)
+            //            .OrderByDescending(v => v.SubmitDt).FirstOrDefault();
 
-                    if (subtempVote != null)
-                        comment.UserVoteDirection = subtempVote.Direction;
+            //        if (subtempVote != null)
+            //            comment.UserVoteDirection = subtempVote.Direction;
 
-                    foreach (CommentEntity subComment in comment.Comments)
-                    {
-                        Vote subsubtempVote = subComment.Votes.Where(v => v.Owner == _userPrincipal.SAMName)
-                            .OrderByDescending(v => v.SubmitDt).FirstOrDefault();
+            //        foreach (CommentEntity subComment in comment.Comments)
+            //        {
+            //            Vote subsubtempVote = subComment.Votes.Where(v => v.Owner == _userPrincipal.SAMName)
+            //                .OrderByDescending(v => v.SubmitDt).FirstOrDefault();
 
-                        if (subsubtempVote != null)
-                            subComment.UserVoteDirection = subsubtempVote.Direction;
-                    }
-                }
-            }
+            //            if (subsubtempVote != null)
+            //                subComment.UserVoteDirection = subsubtempVote.Direction;
+            //        }
+            //    }
+            //}
             return Ok(loadedTheme);
         }
 
@@ -126,11 +123,7 @@ namespace BTR.Controllers
         [HttpPost]
         public async Task<IActionResult> PostThemeAsync([FromBody]ThemeEntity theme)
         {
-            if (!_userPrincipal.IsAppAdmin)
-                return BadRequest();
-           
             theme.OpenDt = DateTime.Now;
-            theme.Owner = _userPrincipal.DisplayName;
             
             await _context.Themes.AddAsync(theme);
             await _context.SaveChangesAsync();
@@ -149,14 +142,11 @@ namespace BTR.Controllers
                 .Where(i => i.ThemeId == id)
                 .FirstOrDefaultAsync();
 
-            if (!_userPrincipal.IsAppAdmin)
-                return Forbid();
-
             patch.ApplyTo(theme, ModelState);
 
             _context.Database.ExecuteSqlCommand("EXEC usp_update_notifications");
 
-            await _context.SaveChangesAsync(true, _userPrincipal.SAMName);
+            await _context.SaveChangesAsync(true, "/michael");
             return Ok(theme);
         }
     }
