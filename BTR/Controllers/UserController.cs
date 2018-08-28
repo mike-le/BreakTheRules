@@ -6,16 +6,16 @@ namespace BTR.Controllers
     [Route("user/")]
     public class UserController : Controller
     {
-        private UNOSUserPrincipalService _userPrincipal;
-        public UserController(UNOSUserPrincipalService userPrincipal)
+    //    private UNOSUserPrincipalService _userPrincipal;
+        public UserController()
         {
-            _userPrincipal = userPrincipal;
+            //_userPrincipal = userPrincipal;
         }
 
         [HttpGet]
         public ActionResult GetUserInfo()
         {
-            return Ok(_userPrincipal);
+            return Ok();
         }
     }
 }

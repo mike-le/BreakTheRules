@@ -13,14 +13,15 @@ namespace BTR.Middleware
             _next = next;
         }
 
-        public async Task Invoke(HttpContext context, UNOSUserPrincipalService userPrincipalService)
+        public async Task Invoke(HttpContext context)
         {
-            if (userPrincipalService.IsBlackListed)
-            {
-                context.Response.StatusCode = StatusCodes.Status403Forbidden;
-                context.Response.Headers.Add("IsBlacklisted", "true");
-                return;
-            }
+            //Skip middleware (go right to context)
+            //if (userPrincipalService.IsBlackListed)
+            //{
+            //    context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            //    context.Response.Headers.Add("IsBlacklisted", "true");
+            //    return;
+            //}
 
             await _next(context);
         }

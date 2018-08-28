@@ -19,15 +19,13 @@ namespace BTR.Controllers
     public class CommentsController : Controller
     {
         private BTRContext _context;
-        private UNOSUserPrincipalService _userPrincipal;
         /// <summary>
         /// Constructs the comments controller with the BTR database context
         /// </summary>
         /// <param name="context">A <see cref="BTRContext"/></param>
-        public CommentsController(BTRContext context, UNOSUserPrincipalService principalService)
+        public CommentsController(BTRContext context)
         {
             _context = context;
-            _userPrincipal = principalService;
         }
 
         /// <summary>
@@ -45,14 +43,14 @@ namespace BTR.Controllers
                         .Include(c => c.Votes);
 
             List<CommentEntity> loadedComments = await commentQuery.ToListAsync<CommentEntity>();
-            foreach (CommentEntity comment in loadedComments)
-            {
-                Vote tempVote = comment.Votes.Where(v => v.Owner == _userPrincipal.SAMName)
-                    .OrderByDescending(v => v.SubmitDt).FirstOrDefault();
+            //foreach (CommentEntity comment in loadedComments)
+            //{
+            //    Vote tempVote = comment.Votes.Where(v => v.Owner == _userPrincipal.SAMName)
+            //        .OrderByDescending(v => v.SubmitDt).FirstOrDefault();
 
-                if (tempVote != null)
-                    comment.UserVoteDirection = tempVote.Direction;
-            }
+            //    if (tempVote != null)
+            //        comment.UserVoteDirection = tempVote.Direction;
+            //}
 
             loadedComments = loadedComments.OrderByDescending(c => c.Score).ThenBy(c => c.SubmitDt).ToList();
             return Ok(loadedComments);
@@ -67,9 +65,9 @@ namespace BTR.Controllers
         {
             comment.SubmitDt = DateTime.Now;
             comment.ModifiedDt = comment.SubmitDt;
-            comment.Owner = _userPrincipal.DisplayName;
+            comment.Owner = "TestOwner";
             await _context.Comments.AddAsync(comment);
-            await _context.SaveChangesAsync(true, _userPrincipal.SAMName);
+            await _context.SaveChangesAsync(true, "testSAM");
 
             return Ok(comment);
         }
@@ -86,15 +84,15 @@ namespace BTR.Controllers
                 .Where(i => i.CommentId == id)
                 .SingleOrDefaultAsync();
 
-            if (_userPrincipal.DisplayName != comment.Owner)
-               return Forbid();
+            //if (_userPrincipal.DisplayName != comment.Owner)
+            //   return Forbid();
 
             patch.ApplyTo(comment, ModelState);
             comment.ModifiedDt = DateTime.Now;
 
             _context.Entry(comment).Property(i => i.Message).IsModified = true;
 
-            await _context.SaveChangesAsync(true, _userPrincipal.SAMName);
+            await _context.SaveChangesAsync(true, "testSam");
             return Ok(comment);
         }
 
@@ -109,14 +107,14 @@ namespace BTR.Controllers
                 .Where(i => i.CommentId == id)
                 .SingleOrDefaultAsync();
 
-            if (!_userPrincipal.IsAppAdmin && _userPrincipal.DisplayName != comment.Owner)
-                return Forbid();
+            //if (!_userPrincipal.IsAppAdmin && _userPrincipal.DisplayName != comment.Owner)
+            //    return Forbid();
 
             await RemoveChildren(comment.CommentId);
 
             _context.Comments.Remove(comment);
 
-            await _context.SaveChangesAsync(true, _userPrincipal.SAMName);
+            await _context.SaveChangesAsync(true, "testSam");
             return Ok();
         }
 
@@ -163,7 +161,7 @@ namespace BTR.Controllers
             {
                 MostRecentVoteByUser = comment.Votes
                     .OrderByDescending(v => v.SubmitDt)
-                    .Where(v => v.Owner == _userPrincipal.SAMName)
+                    //.Where(v => v.Owner == _userPrincipal.SAMName)
                     .First();
             }
             catch
@@ -175,11 +173,11 @@ namespace BTR.Controllers
                 {
                     SubmitDt = DateTime.Now,
                     Direction = direction,
-                    Owner = _userPrincipal.SAMName,
+                    //Owner = _userPrincipal.SAMName,
                     CommentId = id
                 };
                 _context.Votes.Add(userVote);
-                await _context.SaveChangesAsync(true, _userPrincipal.SAMName);
+                await _context.SaveChangesAsync(true, "testSam");
             }
             else
             {
@@ -187,7 +185,7 @@ namespace BTR.Controllers
                     MostRecentVoteByUser.Direction = 0;
                 else
                     MostRecentVoteByUser.Direction = direction;
-                await _context.SaveChangesAsync(true, _userPrincipal.SAMName);
+                await _context.SaveChangesAsync(true, "testSame");
             }
             return Ok(comment.Score);
         }

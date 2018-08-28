@@ -65,7 +65,7 @@ namespace BTR
                 options.AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod()
-            );s
+            );
 
             app.UseMvc();
         }

@@ -19,15 +19,13 @@ namespace BTR.Controllers
     public class IdeasController : Controller
     {
         private BTRContext _context;
-        private UNOSUserPrincipalService _userPrincipal;
         /// <summary>
         /// Constructs the ideas controller with the BTR database context
         /// </summary>
         /// <param name="context">A <see cref="BTRContext"/></param>
-        public IdeasController(BTRContext context, UNOSUserPrincipalService principalService)
+        public IdeasController(BTRContext context)
         {
             _context = context;
-            _userPrincipal = principalService;
         }
 
         /// <summary>
@@ -44,11 +42,11 @@ namespace BTR.Controllers
 
             idea.SubmitDt = DateTime.Now;
             idea.ModifiedDt = idea.SubmitDt;
-            idea.Owner = _userPrincipal.DisplayName;
+            idea.Owner = "Michael";
             
             await _context.Ideas.AddAsync(idea);
 
-            await _context.SaveChangesAsync(true, _userPrincipal.SAMName);
+            await _context.SaveChangesAsync(true, "testSame");
 
             Status ideaStatus = new Status()
             {
@@ -61,7 +59,7 @@ namespace BTR.Controllers
 
             await _context.Statuses.AddAsync(ideaStatus);
 
-            await _context.SaveChangesAsync(true, _userPrincipal.SAMName);
+            await _context.SaveChangesAsync(true, "testSam");
 
             return Ok(idea);
         }
@@ -78,15 +76,15 @@ namespace BTR.Controllers
                 .Where(i => i.PostId == id)
                 .SingleOrDefaultAsync();
 
-            if (_userPrincipal.DisplayName != idea.Owner)
-                return Forbid();
+            //if (_userPrincipal.DisplayName != idea.Owner)
+            //    return Forbid();
 
             patch.ApplyTo(idea, ModelState);
 
             _context.Entry(idea).Property(i => i.Message).IsModified = true;
             idea.ModifiedDt = DateTime.Now;
 
-            await _context.SaveChangesAsync(true, _userPrincipal.SAMName);
+            await _context.SaveChangesAsync(true, "testSAM");
             return Ok(idea);
         }
     
@@ -102,13 +100,13 @@ namespace BTR.Controllers
                 .Where(i => i.PostId == id)
                 .SingleOrDefaultAsync();
 
-            if (!_userPrincipal.IsAppAdmin && _userPrincipal.DisplayName != idea.Owner)
-                return Forbid();
+            //if (!_userPrincipal.IsAppAdmin && _userPrincipal.DisplayName != idea.Owner)
+            //    return Forbid();
 
             await RemoveChildren(idea.PostId);
             _context.Ideas.Remove(idea);
 
-            await _context.SaveChangesAsync(true, _userPrincipal.SAMName);
+            await _context.SaveChangesAsync(true, "testSAM");
             return Ok();
         }
 
@@ -157,7 +155,7 @@ namespace BTR.Controllers
             {
                 MostRecentVoteByUser = idea.Votes
                     .OrderByDescending(v => v.SubmitDt)
-                    .Where(v => v.Owner == _userPrincipal.SAMName)
+                    //.Where(v => v.Owner == _userPrincipal.SAMName)
                     .First();
             }
             catch
@@ -169,11 +167,11 @@ namespace BTR.Controllers
                 {
                     SubmitDt = DateTime.Now,
                     Direction = direction,
-                    Owner = _userPrincipal.SAMName,
+                    Owner = "testSAM",
                     IdeaId = id
                 };
                 _context.Votes.Add(userVote);
-                await _context.SaveChangesAsync(true, _userPrincipal.SAMName);
+                await _context.SaveChangesAsync(true, "testSAM");
             }
             else
             {
@@ -181,7 +179,7 @@ namespace BTR.Controllers
                     MostRecentVoteByUser.Direction = 0;
                 else
                     MostRecentVoteByUser.Direction = direction;
-                await _context.SaveChangesAsync(true, _userPrincipal.SAMName);
+                await _context.SaveChangesAsync(true, "testSAM");
             }
             
             return Ok(idea.Score);

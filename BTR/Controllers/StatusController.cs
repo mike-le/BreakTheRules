@@ -15,16 +15,14 @@ namespace BTR.Controllers
     public class StatusController : Controller
     {
         private BTRContext _context;
-        private UNOSUserPrincipalService _userPrincipal;
 
         /// <summary>
         /// Constructs the comments controller with the BTR database context
         /// </summary>
         /// <param name="context">A <see cref="BTRContext"/></param>
-        public StatusController(BTRContext context, UNOSUserPrincipalService principalService)
+        public StatusController(BTRContext context)
         {
             _context = context;
-            _userPrincipal = principalService;
         }
 
         /// <summary>
@@ -54,20 +52,20 @@ namespace BTR.Controllers
         [HttpPost("{id}")]
         public async Task<ActionResult> PostStatus([FromBody]Status response)
         {
-            if (!(_userPrincipal.IsAppAdmin))
-                return Forbid();
+            //if (!(_userPrincipal.IsAppAdmin))
+            //    return Forbid();
 
             response.SubmitDt = DateTime.Now;
 
             await _context.Statuses.AddAsync(response);
-            await _context.SaveChangesAsync(true, _userPrincipal.SAMName);
+            await _context.SaveChangesAsync(true, "testSAM");
 
             // remove notifications when status has been acknowledged
             if (_context.Notifications.Any(n => n.Status.Idea.PostId == response.IdeaId))
             {
                 var targetNotification = _context.Notifications.Where(n => n.Status.Idea.PostId == response.IdeaId).SingleOrDefault();
                 _context.Notifications.Remove(targetNotification);
-                await _context.SaveChangesAsync(true, _userPrincipal.SAMName);
+                await _context.SaveChangesAsync(true, "testSAM");
             }
 
             return Ok(response);
