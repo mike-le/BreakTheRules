@@ -9,10 +9,6 @@ namespace DataAccess.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "status",
-                table: "ApiThemes");
-
-            migrationBuilder.DropColumn(
                 name: "CommentScore",
                 table: "ApiComments");
 

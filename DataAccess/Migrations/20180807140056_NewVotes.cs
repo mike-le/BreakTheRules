@@ -16,10 +16,6 @@ namespace DataAccess.Migrations
                 name: "Score",
                 table: "ApiIdeas");
 
-            migrationBuilder.DropColumn(
-                name: "Score",
-                table: "ApiComments");
-
             migrationBuilder.CreateTable(
                 name: "Votes",
                 columns: table => new
