@@ -26,7 +26,7 @@ namespace BTR
             services.AddCors();
 
             services.AddDbContext<BTR.DataAccess.BTRContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("BTRBranch"))
+                options => options.UseSqlServer(Configuration.GetConnectionString("BTRContext"))
             );
 
             // config for user groups
