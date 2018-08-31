@@ -30,19 +30,19 @@ namespace BTR
             );
 
             // config for user groups
-            services.AddSingleton(cfg =>
-            {
-                var usrRights = new UserRights();
-                Configuration.GetSection("UserRights:BTR").Bind(usrRights) ;
-                return usrRights;
-            });
+            //services.AddSingleton(cfg =>
+            //{
+            //    var usrRights = new UserRights();
+            //    Configuration.GetSection("UserRights:BTR").Bind(usrRights) ;
+            //    return usrRights;
+            //});
 
             // config for email
-            services.AddSingleton(cfg => {
-                var emailCfg = new EmailConfig();
-                Configuration.GetSection("EmailSettings:BTR").Bind(emailCfg);
-                return emailCfg;
-            });
+            //services.AddSingleton(cfg => {
+            //    var emailCfg = new EmailConfig();
+            //    Configuration.GetSection("EmailSettings:BTR").Bind(emailCfg);
+            //    return emailCfg;
+            //});
             
             // used by functions like GetIdeaById and GetThemeById to loop to create their subtrees
             services.AddMvc()
