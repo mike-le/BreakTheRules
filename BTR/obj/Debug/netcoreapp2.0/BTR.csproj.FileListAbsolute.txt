@@ -12,3 +12,17 @@ C:\TFS\WebApps\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\DataAccess.pdb
 C:\TFS\WebApps\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.csproj.CopyComplete
 C:\TFS\WebApps\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.dll
 C:\TFS\WebApps\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.pdb
+C:\Users\Michael\Documents\GitHub\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\BTR.deps.json
+C:\Users\Michael\Documents\GitHub\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\BTR.runtimeconfig.json
+C:\Users\Michael\Documents\GitHub\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\BTR.runtimeconfig.dev.json
+C:\Users\Michael\Documents\GitHub\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\BTR.dll
+C:\Users\Michael\Documents\GitHub\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\BTR.pdb
+C:\Users\Michael\Documents\GitHub\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\DataAccess.dll
+C:\Users\Michael\Documents\GitHub\BreakTheRules\BTR\bin\Debug\netcoreapp2.0\DataAccess.pdb
+C:\Users\Michael\Documents\GitHub\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.csprojAssemblyReference.cache
+C:\Users\Michael\Documents\GitHub\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.csproj.CoreCompileInputs.cache
+C:\Users\Michael\Documents\GitHub\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.AssemblyInfoInputs.cache
+C:\Users\Michael\Documents\GitHub\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.AssemblyInfo.cs
+C:\Users\Michael\Documents\GitHub\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.csproj.CopyComplete
+C:\Users\Michael\Documents\GitHub\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.dll
+C:\Users\Michael\Documents\GitHub\BreakTheRules\BTR\obj\Debug\netcoreapp2.0\BTR.pdb
