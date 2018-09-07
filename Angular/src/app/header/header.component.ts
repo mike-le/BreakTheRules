@@ -32,5 +32,4 @@ export class HeaderComponent implements OnInit {
   }
 
   get diagnostic() { return JSON.stringify(this._userPrincipal) }
-
 }
