@@ -60,7 +60,7 @@ export class ThemesComponent implements OnInit {
     for (let theme of themeSource) {
       theme.status = (new Date(theme.closeDt) > new Date()) ? 'open' : 'closed';
     }
-    this.sortThemes(themeSource, this.sorting);
+    //this.sortThemes(themeSource, this.sorting);
     return themeSource as Array<Theme>;
   }
   filterThemes (themeSource: Array<Theme>)

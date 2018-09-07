@@ -17,9 +17,8 @@ namespace BTR.DataAccess
     public class BTRContext : DbContext
     {
         private EmailConfig _emailconfig;
-        public BTRContext(DbContextOptions<BTRContext> options, EmailConfig emailConfig) : base(options)
+        public BTRContext(DbContextOptions<BTRContext> options) : base(options)
         {
-            _emailconfig = emailConfig;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

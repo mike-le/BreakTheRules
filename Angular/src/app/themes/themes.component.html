@@ -15,7 +15,7 @@
 			<li *ngFor="let theme of this.filterThemes(themes);" class="post">
 				<div class="theme-block">
 					<div>
-						<a class="title" [routerLink]="['/themes/' + theme.themeId]">
+						<a class="title" [routerLink]="['/themes/' + theme.themeId]"> 		
 							{{ theme.title }}
 						</a>
 						<span id="right">
