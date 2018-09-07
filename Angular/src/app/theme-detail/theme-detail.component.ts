@@ -17,18 +17,18 @@ export class ThemeDetailComponent implements OnInit {
   pageSub: any;
   themeId: number;
   input: string;
-  User: UserPrincipal
+  //User: UserPrincipal
   comment;
 
   constructor(
-    private _userPrincipal: UserPrincipal,
+    //private _userPrincipal: UserPrincipal,
     private _themeService: ThemeService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
 
   ngOnInit() {
-    this.User = this._userPrincipal;
+   // this.User = this._userPrincipal;
     this.pageSub = this.route.params.subscribe(params => {
       this.themeId = +params['id'] ? +params['id'] : 1;	  
       

@@ -6,7 +6,7 @@
 				<a class="title">
 					{{ theme.title }}  
 				</a>
-				<span class="edit" *ngIf="User.isAppAdmin">
+				<span class="edit">
 						<b data-toggle="modal" data-target="#editModal" class="edit">
 								<span>edit</span>&nbsp;
 						</b>
@@ -17,7 +17,7 @@
 			<span class="description">
 					{{ theme.description }}
 			</span>
-			<span id="closeTheme" *ngIf="User.isAppAdmin" data-toggle="modal" data-target="#closeThemeMessage">close theme</span>
+			<span id="closeTheme" data-toggle="modal" data-target="#closeThemeMessage">close theme</span>
 			
 			<br>
 			<div class="input-group" *ngIf="theme.status === 'open'">
