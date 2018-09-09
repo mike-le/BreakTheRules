@@ -25,6 +25,9 @@
 			<span class="input-group" id="edit">
 				<textarea rows="5" cols="50" [(ngModel)]="editIdea" form="edit" id="edit">{{idea.message}}</textarea>
 				<div class="bottom-bar"> 
+					<span class="bold"> B </span>
+					<i> i </i>
+					<span class ="bold"> ... </span>
 					<span (click)="collapseEdit=!collapseEdit" class="cancel"> cancel </span>
 					<button type="submit" (click)=patchIdea(editIdea) form="edit" value="Submit">Submit</button> 
 				</div>
@@ -53,6 +56,9 @@
 				<div class="input-group" id="reply">
 					<textarea rows="5" cols="50" minlength="1" [(ngModel)]="input" form="comment" id="comment" placeholder="What are your thoughts?"></textarea>
 					<div class="bottom-bar"> 
+						<span class="bold"> B </span>
+						<i> i </i>
+						<span class ="bold"> ... </span>
 						<span (click)="collapseReply=!collapseReply" class="cancel"> cancel </span>
 						<button type="submit" [disabled]="!input" (click)=send(input) form="comment" value="Submit">Reply</button> 
 					</div>

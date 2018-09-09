@@ -27,8 +27,8 @@
 					<button type="submit" class="submit" form="comment" [disabled]="!input" (click)="send(input)" value="Submit">Comment</button> 
 				</div>
 				<span class="right" >					
-						<div [ngStyle]="{'color': theme.status === 'open' ? 'green' : 'red'}" style="float:right"><span style="font-weight:bold">Status:</span> {{theme.status}}</div>
-						<div class="subtext-laptop">
+						<div [ngStyle]="{'color': theme.status === 'open' ? 'green' : 'red'}" class="td-status"><span style="font-weight:bold">Status:</span> {{theme.status}}</div>
+						<div>
 								<span class="glyphicon glyphicon-time" id="time"></span> 
 								<span *ngIf="theme.status === 'open'"> {{theme.closeDt | amDifference : null : 'days' }} days left</span>
 								<span *ngIf="theme.status === 'closed'"> {{theme.closeDt | amTimeAgo }} </span>
