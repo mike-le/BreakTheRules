@@ -28,7 +28,7 @@
 }
 
 
-font{
+font {
   padding-left: 20px;
   font-size: 12px;
   &:hover{
@@ -37,130 +37,130 @@ font{
   }
 }
 
-a {
-    color: #1A5276;
-    text-decoration: none;
-    font-weight: bold;
-  
-    &:hover {
-      text-decoration: underline;
-    };
-  }
-  
-  em{
-    color: #1A5276;
-    text-decoration: none;
-    font-weight: bold;
-    font-style: normal;
-  }
+a{
+color: #1A5276;
+text-decoration: none;
+font-weight: bold;
 
-  ol {
-    padding: 0 40px;
-    margin: 0;
-   
-    li {
-      position: relative;
-      -webkit-transition: background-color .2s ease;
-      transition: background-color .2s ease;
-    }
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0px;
+&:hover {
+  text-decoration: underline;
+};
+}
 
-    margin-top: 10px;
-    margin-left: 23px;
-    margin-right: 23px;
-    
-  }
+em{
+  color: #1A5276;
+  text-decoration: none;
+  font-weight: bold;
+  font-style: normal;
+}
+
+ol {
+  padding: 0 40px;
+  margin: 0;
   
-  .status{
+  li {
     position: relative;
-    color: white;
-    bottom: 2px;
-    border-radius: 5px;
-    font-size: 7px;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: bold;
-    padding: 3px;
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-top: 3.5px;
-    text-transform: uppercase;
-    text-align: center;
-    display: inline-block;
-    
+    -webkit-transition: background-color .2s ease;
+    transition: background-color .2s ease;
   }
+}
 
-  .main-content {
-    position: relative;
-    width: 100%;
-    min-height: calc(93vh - 10px);
-    -webkit-transition: opacity .2s ease;
-    transition: opacity .2s ease;
-    box-sizing: border-box;
-    padding: 0px 0;
-    z-index: 0;
+ul {
+  list-style-type: none;
+  padding: 0px;
 
-    display: flex;
-    flex-direction: column;
-    background-color: #edf0f5;
-  }
+  margin-top: 10px;
+  margin-left: 23px;
+  margin-right: 23px;
   
-  .post {
-    padding: 10px 0 10px 0px;
-    transition: background-color 0.2s ease;
-    border-bottom: 2px solid #edf0f5;
-    background-color: white;
-    .itemNum {
-      position: absolute;
-      width: 30px;
-      text-align: right;
-      left: 0;
-      top: 4px;
-    }
-    &:hover {
-      outline: 1;
-    };
-  }
+}
 
-  .theme-block {
-    display: block;
-    margin-left: 22px;
-  }
+.status{
+  position: relative;
+  color: white;
+  bottom: 2px;
+  border-radius: 5px;
+  font-size: 7px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: bold;
+  padding: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 3.5px;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
   
-  .nav {
-    padding: 10px 40px;
-    margin-top: 10px;
-    font-size: 17px;
-    text-align: center;
-  
-    .prev{
-      padding-right: 20px;
-    }
-  
-    
-  }
-  
-  .job-header {
-    font-size: 15px;
-    padding: 0 40px 10px;
-  }
-  
-  .loader {
-    border: 16px solid #f3f3f3; 
-    border-top: 16px solid #1A5276; 
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    animation: spin 2s linear infinite;
+}
 
+.main-content {
+  position: relative;
+  width: 100%;
+  min-height: calc(93vh - 10px);
+  -webkit-transition: opacity .2s ease;
+  transition: opacity .2s ease;
+  box-sizing: border-box;
+  padding: 0px 0;
+  z-index: 0;
+
+  display: flex;
+  flex-direction: column;
+  background-color: #edf0f5;
+}
+
+.post {
+  padding: 10px 0 10px 0px;
+  transition: background-color 0.2s ease;
+  border-bottom: 2px solid #edf0f5;
+  background-color: white;
+  .itemNum {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    margin: -75px 0 0 -75px;
+    width: 30px;
+    text-align: right;
+    left: 0;
+    top: 4px;
+  }
+  &:hover {
+    outline: 1;
+  };
+}
+
+.theme-block {
+  display: block;
+  margin-left: 22px;
+}
+
+.nav {
+  padding: 10px 40px;
+  margin-top: 10px;
+  font-size: 17px;
+  text-align: center;
+
+  .prev{
+    padding-right: 20px;
+  }
+
+  
+}
+
+.job-header {
+  font-size: 15px;
+  padding: 0 40px 10px;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #1A5276; 
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  margin: -75px 0 0 -75px;
 }
 
 @keyframes spin {

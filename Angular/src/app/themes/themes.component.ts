@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Theme } from '../Models/theme';
 import { ThemeService } from '../theme.service';
@@ -22,7 +21,6 @@ enum FILTER_OPTION {
   styleUrls: ['./themes.component.scss']
 })
 
-
 export class ThemesComponent implements OnInit {
   themes: Theme[];
   pageSub: any;
@@ -35,7 +33,6 @@ export class ThemesComponent implements OnInit {
   
   constructor(
     private _themeService: ThemeService,
-    private route: ActivatedRoute,
     private router: Router
   ) {}
   
@@ -63,6 +60,7 @@ export class ThemesComponent implements OnInit {
     //this.sortThemes(themeSource, this.sorting);
     return themeSource as Array<Theme>;
   }
+
   filterThemes (themeSource: Array<Theme>)
   {
     return themeSource.filter( theme =>{
@@ -83,14 +81,14 @@ export class ThemesComponent implements OnInit {
     else
       this.filter_options.push(filter);
   }
+
   filterActive(filter: FILTER_OPTION) {
     return this.filter_options.indexOf(filter) >= 0;
   }
+
   sortThemes(themeSource: Array<Theme>, sorting: SORT_OPTION){
     this.sorting = sorting;
-    if (sorting === SORT_OPTION.MOST) {
-      
-    }
+    if (sorting === SORT_OPTION.MOST) {}
     else if (sorting === SORT_OPTION.NEWEST) {
       return themeSource.sort((t1: Theme, t2: Theme) => {
         if (t1.openDt > t2.openDt){

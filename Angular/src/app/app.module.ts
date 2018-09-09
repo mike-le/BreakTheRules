@@ -19,8 +19,8 @@ import { StatusFormComponent } from './status-form/status-form.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
-import { TimeAgoPipe } from './time-ago.pipe';
-import { EnumToStringPipe } from './enum-to-string.pipe';
+import { TimeAgoPipe } from './Pipes/time-ago.pipe';
+import { EnumToStringPipe } from './Pipes/enum-to-string.pipe';
 
 import { routing } from './app.routes';
 

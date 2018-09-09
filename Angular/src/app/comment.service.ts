@@ -7,7 +7,7 @@ import { Status } from './Models/status';
 
 import 'rxjs/add/operator/map';
 import { environment } from '../environments/environment';
-import { Subject } from '../../node_modules/rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 
