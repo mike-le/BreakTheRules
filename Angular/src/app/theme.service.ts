@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import { Theme } from './Models/theme';
 
 import { environment } from '../environments/environment';
-import { map } from '../../node_modules/rxjs-compat/operator/map';
+import { map } from 'rxjs-compat/operator/map';
 
 @Injectable({providedIn: 'root'})
 
@@ -33,8 +33,6 @@ export class ThemeService {
 			'Access-Control-Allow-Origin': '*',
 			'Request-Method': 'POST'
 		});
-		
-		//content = content.replace(/\n/g, '<br/>');
 		
 		var idea = {
 			"message": content,

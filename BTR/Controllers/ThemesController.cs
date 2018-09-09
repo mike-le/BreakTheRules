@@ -124,6 +124,7 @@ namespace BTR.Controllers
         public async Task<IActionResult> PostThemeAsync([FromBody]ThemeEntity theme)
         {
             theme.OpenDt = DateTime.Now;
+            theme.Owner = "Michael";
             
             await _context.Themes.AddAsync(theme);
             await _context.SaveChangesAsync();
