@@ -41,14 +41,14 @@
 		</div>
 	</div>
 
-	<div class="admin-bar" *ngIf="theme.status === 'closed' && User.isAppAdmin">
+	<div class="admin-bar" *ngIf="theme.status === 'closed'">
 		<app-status-form [idea]="idea"></app-status-form>
     </div>
 	<div [hidden]="collapse" *ngIf="theme.status === 'open'">
 		<div class="comment-options">
 			<font (click)="collapseReply=!collapseReply"> Reply </font> 
-			<font *ngIf="canEdit()" (click)="collapseEdit=!collapseEdit"> Edit </font>
-			<font *ngIf="canDelete()" (click)="deleteIdea()"> Delete </font>
+			<font (click)="collapseEdit=!collapseEdit"> Edit </font>
+			<font (click)="deleteIdea()"> Delete </font>
 			<span [hidden]="!collapseReply">
 				<div class="input-group" id="reply">
 					<textarea rows="5" cols="50" minlength="1" [(ngModel)]="input" form="comment" id="comment" placeholder="What are your thoughts?"></textarea>
