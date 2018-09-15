@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserPrincipal } from './Models/UserPrincipal';
 import { UserService } from './user.service';
-import { MatSnackBar, MatSnackBarConfig } from '../../node_modules/@angular/material';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { CommentService } from './comment.service';
 
 @Component({
