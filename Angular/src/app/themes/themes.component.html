@@ -1,6 +1,13 @@
 <div class="main-content">
 	<header id="header"> 
 		<div class="name">
+			<mat-form-field>
+				<mat-select placeholder="Filter" disableRipple>
+					<mat-option value="1">Most Recent</mat-option>
+					<mat-option value="2">Least Recent</mat-option>
+					<mat-option value="3">Close Date</mat-option>
+				</mat-select>
+			</mat-form-field>
 			<font [ngClass]="{'active': this.sorting === SORT_OPTION.NEWEST}" (click)="this.sortThemes(this.themes, SORT_OPTION.NEWEST)"> newest </font>
 			<font [ngClass]="{'active': this.sorting === SORT_OPTION.OLDEST}" (click)="this.sortThemes(this.themes, SORT_OPTION.OLDEST)"> oldest </font>
 			<font [ngClass]="{'active': this.sorting === SORT_OPTION.CLOSING_SOONEST}" (click)="this.sortThemes(this.themes, SORT_OPTION.CLOSING_SOONEST)"> closing soonest </font>
