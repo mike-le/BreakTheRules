@@ -8,11 +8,12 @@
 			<font [ngClass]="{'active': this.filterActive(FILTER_OPTION.FILTER_CLOSED_THEMES)}" (click)="this.toggleFilter(FILTER_OPTION.FILTER_CLOSED_THEMES)"> toggle closed </font>
 			<font [ngClass]="{'active': this.filterActive(FILTER_OPTION.FILTER_OPEN_THEMES)}" (click)="this.toggleFilter(FILTER_OPTION.FILTER_OPEN_THEMES)"> toggle open </font>
 		</div>
+		<span id="right" class="toggle"> <mat-slide-toggle> open/close </mat-slide-toggle> </span>
 	</header>
 	<div *ngIf="!themes" class="loader"> </div>
 	<div *ngIf="themes">
 		<ul class="theme-list">
-			<li *ngFor="let theme of this.filterThemes(themes);" class="post">
+			<li *ngFor="let theme of this.filterThemes(themes)" class="post">
 				<div class="theme-block">
 					<div>
 						<a class="title" [routerLink]="['/themes/' + theme.themeId]"> 		

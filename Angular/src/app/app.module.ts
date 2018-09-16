@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { MatBadgeModule, MatSnackBarModule } from '@angular/material';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MomentModule } from 'angular2-moment/moment.module';
 
@@ -49,6 +50,7 @@ import { UserPrincipal } from './Models/UserPrincipal';
     BrowserModule,
     MatBadgeModule,
     MatSnackBarModule,
+    MatSlideToggleModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
