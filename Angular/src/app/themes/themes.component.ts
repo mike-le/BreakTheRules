@@ -24,6 +24,7 @@ enum FILTER_OPTION {
 export class ThemesComponent implements OnInit {
   themes: Theme[];
   pageSub: any;
+  showOpen: boolean;
   SORT_OPTION: typeof SORT_OPTION = SORT_OPTION;
   FILTER_OPTION: typeof FILTER_OPTION = FILTER_OPTION;
   filter_options: Array<FILTER_OPTION> = [];
@@ -37,7 +38,9 @@ export class ThemesComponent implements OnInit {
   ) {}
   
   ngOnInit() {
+    this.showOpen = true;
     this.toggleFilter(FILTER_OPTION.FILTER_CLOSED_THEMES);
+    this.toggleOpen(this.showOpen);
     // this.themes = this.loadThemes(require('../sampledata.json'));
     this._themeService.getThemes()
 		.subscribe(
@@ -67,19 +70,24 @@ export class ThemesComponent implements OnInit {
       if (this.filter_options.indexOf(FILTER_OPTION.FILTER_CLOSED_THEMES) >= 0 && 
         this.filter_options.indexOf(FILTER_OPTION.FILTER_OPEN_THEMES) >= 0)
         return false;
-      if (this.filter_options.indexOf(FILTER_OPTION.FILTER_CLOSED_THEMES) >= 0)
+      if (this.showOpen)
         return theme.status === 'open';
-      else if (this.filter_options.indexOf(FILTER_OPTION.FILTER_OPEN_THEMES) >= 0)
+      else if (!this.showOpen)
         return theme.status === 'closed';
       else
         return true;
     });
   }
+
   toggleFilter (filter: FILTER_OPTION){
     if (this.filter_options.indexOf(filter) >= 0)
       delete this.filter_options[this.filter_options.indexOf(filter)];
     else
       this.filter_options.push(filter);
+  }
+
+  toggleOpen (showOpen: boolean){
+    showOpen = showOpen ? false : true;
   }
 
   filterActive(filter: FILTER_OPTION) {
@@ -151,4 +159,3 @@ export class ThemesComponent implements OnInit {
     }
   }
 }
- 
