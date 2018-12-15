@@ -20,9 +20,6 @@ BreakTheRules (BTR) is a web application, intended for internal-use only, that i
 • Angular CLI  
 • Node.js  
 • NPM  
-• SSMS  
-• IIS  
-• Postman  
 
 ## User Interface
 
