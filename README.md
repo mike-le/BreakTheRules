@@ -1,6 +1,5 @@
 # BreakTheRules  
-Developed as a Software Engineer Intern  
-Contributors: Caleb Webber, Michael Le
+[![CircleCI](https://circleci.com/gh/mike-le/BreakTheRules.svg?style=shield)](https://circleci.com/gh/mike-le/BreakTheRules)
 
 ## Description
 BreakTheRules (BTR) is a web application, intended for internal-use only, that is designed to foster policy change discussion between employees of a company. BTR is scalable so it can be used within a department or to connect multiple departments. It is also customizeable and flexible in design to allow the owner of the application to shape the platform to fit their needs.
