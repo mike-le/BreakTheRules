@@ -33,7 +33,7 @@
     "jquery": "^3.4.0",
     "lodash": "^4.17.14",
     "lodash.mergewith": "^4.6.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "popper.js": "^1.15.0",
     "rxjs": "^6.5.1",
     "rxjs-compat": "^6.5.1",
